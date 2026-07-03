@@ -20,17 +20,19 @@ discovered here should be reported and fixed in
 ## Working Rules
 
 - Keep `ppspecial` source free of compiler-specific escape hatches.
-- Use the locally checked out POST Python compiler at `/Users/travis/PostPython`
-  for verification during development.
-- Before using the local compiler for verification, confirm it is on `main`:
+- Use a locally checked-out POST Python repository for compiler verification
+  during development.
+- Keep that POST Python checkout updated regularly to the `main` branch.
+- Before using a local compiler checkout for verification, confirm it is on
+  `main`:
 
   ```bash
-  git -C /Users/travis/PostPython status --short --branch
-  git -C /Users/travis/PostPython rev-parse --abbrev-ref HEAD
+  git -C /path/to/postpython status --short --branch
+  git -C /path/to/postpython rev-parse --abbrev-ref HEAD
   ```
 
-- If `/Users/travis/PostPython` is not on `main`, do not treat compiler
-  results as canonical for ppspecial progress.
+- If the POST Python checkout is not on `main`, do not treat compiler results
+  as canonical for ppspecial progress.
 - Keep the plain C shared library target independent from the NumPy extension
   target. NumPy wrappers should delegate to the same compiled scalar/core
   kernels used by the C ABI artifact.
@@ -59,10 +61,10 @@ Acceptance criteria:
   python -m pytest tests/
   ```
 
-- Native build passes with the local POST Python `main` compiler:
+- Native build passes with a local POST Python checkout on `main`:
 
   ```bash
-  PYTHONPATH=/Users/travis/PostPython python scripts/build_native.py
+  PYTHONPATH=/path/to/postpython python scripts/build_native.py
   ```
 
 - `scripts/build_native.py` reports:
