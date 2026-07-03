@@ -100,11 +100,16 @@ kernel module to a native shared library with the reference compiler:
 | `_erf` | ✅ compiles natively |
 | `_bessel` | ✅ compiles natively |
 | `_gamma` | ✅ compiles natively |
-| `_stats` | ⏳ blocked on cross-module POST compilation (`_stats` imports `erfc`/`erfinv` from `_erf`) — a POST Python compiler roadmap item |
+| `_stats` | ✅ compiles natively (links against `_erf`'s compiled `erfc`/`erfinv` via cross-module POST compilation) |
+
+The entire package also builds as one shared library:
+`build_file("ppspecial/__init__.py")` compiles all four translation units
+dependencies-first and links them into a single artifact with every public
+function exported.
 
 One code base, two execution modes. As the reference compiler grows
-(cross-module compilation, module-level constants, CPython extension-module
-output), this library inherits each improvement without source changes.
+(module-level constants, CPython extension-module output), this library
+inherits each improvement without source changes.
 
 > **Note on constants:** polynomial coefficients currently live inside the
 > kernel functions rather than at module scope, because the reference
