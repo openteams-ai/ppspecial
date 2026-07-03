@@ -44,7 +44,7 @@ environments:
       - conda: https://conda.anaconda.org/conda-forge/linux-64/tk-8.6.13-noxft_h366c992_103.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/tzdata-2025c-hc9c84f9_1.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-64/zstd-1.5.7-hb78ec9c_6.conda
-      - pypi: git+https://github.com/openteams-ai/postpython.git#351c982d1bf032923719ea0d73d39aea48ab9d93
+      - pypi: git+https://github.com/openteams-ai/postpython.git#ecb13fd00a888d7e8df093d0f2c3dcce9932beaa
       - pypi: ./
       linux-aarch64:
       - conda: https://conda.anaconda.org/conda-forge/linux-aarch64/_openmp_mutex-4.5-20_gnu.conda
@@ -83,7 +83,7 @@ environments:
       - conda: https://conda.anaconda.org/conda-forge/linux-aarch64/tk-8.6.13-noxft_h0dc03b3_103.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/tzdata-2025c-hc9c84f9_1.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-aarch64/zstd-1.5.7-h85ac4a6_6.conda
-      - pypi: git+https://github.com/openteams-ai/postpython.git#351c982d1bf032923719ea0d73d39aea48ab9d93
+      - pypi: git+https://github.com/openteams-ai/postpython.git#ecb13fd00a888d7e8df093d0f2c3dcce9932beaa
       - pypi: ./
       osx-64:
       - conda: https://conda.anaconda.org/conda-forge/osx-64/bzip2-1.0.8-h500dc9f_9.conda
@@ -128,7 +128,7 @@ environments:
       - conda: https://conda.anaconda.org/conda-forge/osx-64/tk-8.6.13-h7142dee_3.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/tzdata-2025c-hc9c84f9_1.conda
       - conda: https://conda.anaconda.org/conda-forge/osx-64/zstd-1.5.7-h3eecb57_6.conda
-      - pypi: git+https://github.com/openteams-ai/postpython.git#351c982d1bf032923719ea0d73d39aea48ab9d93
+      - pypi: git+https://github.com/openteams-ai/postpython.git#ecb13fd00a888d7e8df093d0f2c3dcce9932beaa
       - pypi: ./
       osx-arm64:
       - conda: https://conda.anaconda.org/conda-forge/osx-arm64/bzip2-1.0.8-hd037594_9.conda
@@ -172,7 +172,7 @@ environments:
       - conda: https://conda.anaconda.org/conda-forge/osx-arm64/tk-8.6.13-h010d191_3.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/tzdata-2025c-hc9c84f9_1.conda
       - conda: https://conda.anaconda.org/conda-forge/osx-arm64/zstd-1.5.7-hbf9d68e_6.conda
-      - pypi: git+https://github.com/openteams-ai/postpython.git#351c982d1bf032923719ea0d73d39aea48ab9d93
+      - pypi: git+https://github.com/openteams-ai/postpython.git#ecb13fd00a888d7e8df093d0f2c3dcce9932beaa
       - pypi: ./
       win-64:
       - conda: https://conda.anaconda.org/conda-forge/win-64/bzip2-1.0.8-h0ad9c76_9.conda
@@ -196,7 +196,7 @@ environments:
       - conda: https://conda.anaconda.org/conda-forge/win-64/vs2022_win-64-19.44.35207-ha74f236_39.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/vswhere-3.1.7-h40126e0_1.conda
       - conda: https://conda.anaconda.org/conda-forge/win-64/zstd-1.5.7-h534d264_6.conda
-      - pypi: git+https://github.com/openteams-ai/postpython.git#351c982d1bf032923719ea0d73d39aea48ab9d93
+      - pypi: git+https://github.com/openteams-ai/postpython.git#ecb13fd00a888d7e8df093d0f2c3dcce9932beaa
       - pypi: ./
   dev:
     channels:
@@ -258,7 +258,7 @@ environments:
       - conda: https://conda.anaconda.org/conda-forge/noarch/typing_extensions-4.16.0-pyhcf101f3_0.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/tzdata-2025c-hc9c84f9_1.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-64/zstd-1.5.7-hb78ec9c_6.conda
-      - pypi: git+https://github.com/openteams-ai/postpython.git#351c982d1bf032923719ea0d73d39aea48ab9d93
+      - pypi: git+https://github.com/openteams-ai/postpython.git#ecb13fd00a888d7e8df093d0f2c3dcce9932beaa
       - pypi: ./
       linux-aarch64:
       - conda: https://conda.anaconda.org/conda-forge/linux-aarch64/_openmp_mutex-4.5-20_gnu.conda
@@ -313,7 +313,7 @@ environments:
       - conda: https://conda.anaconda.org/conda-forge/noarch/typing_extensions-4.16.0-pyhcf101f3_0.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/tzdata-2025c-hc9c84f9_1.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-aarch64/zstd-1.5.7-h85ac4a6_6.conda
-      - pypi: git+https://github.com/openteams-ai/postpython.git#351c982d1bf032923719ea0d73d39aea48ab9d93
+      - pypi: git+https://github.com/openteams-ai/postpython.git#ecb13fd00a888d7e8df093d0f2c3dcce9932beaa
       - pypi: ./
       osx-64:
       - conda: https://conda.anaconda.org/conda-forge/osx-64/_openmp_mutex-4.5-7_kmp_llvm.conda
@@ -376,7 +376,7 @@ environments:
       - conda: https://conda.anaconda.org/conda-forge/noarch/typing_extensions-4.16.0-pyhcf101f3_0.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/tzdata-2025c-hc9c84f9_1.conda
       - conda: https://conda.anaconda.org/conda-forge/osx-64/zstd-1.5.7-h3eecb57_6.conda
-      - pypi: git+https://github.com/openteams-ai/postpython.git#351c982d1bf032923719ea0d73d39aea48ab9d93
+      - pypi: git+https://github.com/openteams-ai/postpython.git#ecb13fd00a888d7e8df093d0f2c3dcce9932beaa
       - pypi: ./
       osx-arm64:
       - conda: https://conda.anaconda.org/conda-forge/osx-arm64/_openmp_mutex-4.5-7_kmp_llvm.conda
@@ -438,7 +438,7 @@ environments:
       - conda: https://conda.anaconda.org/conda-forge/noarch/typing_extensions-4.16.0-pyhcf101f3_0.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/tzdata-2025c-hc9c84f9_1.conda
       - conda: https://conda.anaconda.org/conda-forge/osx-arm64/zstd-1.5.7-hbf9d68e_6.conda
-      - pypi: git+https://github.com/openteams-ai/postpython.git#351c982d1bf032923719ea0d73d39aea48ab9d93
+      - pypi: git+https://github.com/openteams-ai/postpython.git#ecb13fd00a888d7e8df093d0f2c3dcce9932beaa
       - pypi: ./
       win-64:
       - conda: https://conda.anaconda.org/conda-forge/win-64/bzip2-1.0.8-h0ad9c76_9.conda
@@ -484,7 +484,7 @@ environments:
       - conda: https://conda.anaconda.org/conda-forge/win-64/vs2022_win-64-19.44.35207-ha74f236_39.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/vswhere-3.1.7-h40126e0_1.conda
       - conda: https://conda.anaconda.org/conda-forge/win-64/zstd-1.5.7-h534d264_6.conda
-      - pypi: git+https://github.com/openteams-ai/postpython.git#351c982d1bf032923719ea0d73d39aea48ab9d93
+      - pypi: git+https://github.com/openteams-ai/postpython.git#ecb13fd00a888d7e8df093d0f2c3dcce9932beaa
       - pypi: ./
 packages:
 - conda: https://conda.anaconda.org/conda-forge/linux-64/_openmp_mutex-4.5-20_gnu.conda
@@ -2756,7 +2756,7 @@ packages:
   - pkg:pypi/pluggy?source=hash-mapping
   size: 25877
   timestamp: 1764896838868
-- pypi: git+https://github.com/openteams-ai/postpython.git#351c982d1bf032923719ea0d73d39aea48ab9d93
+- pypi: git+https://github.com/openteams-ai/postpython.git#ecb13fd00a888d7e8df093d0f2c3dcce9932beaa
   name: postpython
   version: 0.2.0
   requires_dist:
@@ -2769,7 +2769,7 @@ packages:
 - pypi: ./
   name: ppspecial
   version: 0.1.0
-  sha256: b7a703c8b2c84bd9a0c14581f26305f102ac08ebc4093dd684921902d8dfda93
+  sha256: 178a6a432ca54ccaa56f80ab09e08791feb69886e7b37319d8da697c15f6caf7
   requires_dist:
   - postpython @ git+https://github.com/openteams-ai/postpython.git
   - numpy ; extra == 'numpy'

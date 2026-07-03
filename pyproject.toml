@@ -71,3 +71,4 @@ dev = { features = ["dev"], solve-group = "default" }
 [tool.pixi.tasks]
 test = { cmd = "pytest tests/", description = "Run the test suite (interpreted mode)." }
 build-native = { cmd = "python scripts/build_native.py", description = "Compile each kernel module to a native shared library and report status." }
+build-ext = { cmd = "python scripts/build_ext.py", description = "Build ppspecial_native, an importable NumPy-ufunc extension module." }

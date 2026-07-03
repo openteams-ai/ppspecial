@@ -73,8 +73,9 @@ C compiler for native builds:
 
 ```bash
 pixi install -e dev
-pixi run -e dev test            # run the test suite (interpreted mode)
-pixi run -e dev build-native    # compile the kernels to native code
+pixi run -e dev test            # run the test suite (interpreted + compiled)
+pixi run -e dev build-native    # compile the kernels to a plain C shared library
+pixi run -e dev build-ext       # build ppspecial_native, a NumPy-ufunc extension
 ```
 
 ## Usage
@@ -107,9 +108,31 @@ The entire package also builds as one shared library:
 dependencies-first and links them into a single artifact with every public
 function exported.
 
-One code base, two execution modes. As the reference compiler grows
-(module-level constants, CPython extension-module output), this library
-inherits each improvement without source changes.
+## Compiled extension module (NumPy ufuncs)
+
+`pixi run build-ext` (or `python scripts/build_ext.py`) builds
+`ppspecial_native` — an importable CPython extension in which every public
+function is a real `numpy.ufunc` registered from the compiled kernels:
+
+```python
+import numpy as np
+import ppspecial_native as pps
+
+type(pps.erf)                      # <class 'numpy.ufunc'>
+pps.erf(np.linspace(-3, 3, 7))     # native speed, NumPy broadcasting
+pps.ndtr(x, out=buffer)            # out=, where=, dtype dispatch — all ufunc goodies
+help(pps.ndtr)                     # shows the original POST Python docstring
+```
+
+The extension delegates to the same compiled translation units as the plain
+shared library — one set of kernels, three consumption paths (interpreted
+Python, C ABI via ctypes/cffi, NumPy ufuncs). The test suite verifies that
+compiled ufuncs agree with interpreted mode across sample grids, including
+broadcasting.
+
+One code base, one artifact per audience. As the reference compiler grows
+(module-level constants next), this library inherits each improvement
+without source changes.
 
 > **Note on constants:** polynomial coefficients currently live inside the
 > kernel functions rather than at module scope, because the reference
@@ -118,14 +141,17 @@ inherits each improvement without source changes.
 
 ## Roadmap
 
+The detailed cooperative roadmap is maintained in
+[`ROADMAP.md`](ROADMAP.md). It breaks the project into publishable targets
+for ppspecial library work, native C ABI work, NumPy extension work, and
+POST Python compiler/spec requests discovered from this library.
+
 - Hypergeometric functions: `hyp1f1`, `hyp2f1`, `hyp0f1`
 - Orthogonal polynomials: `eval_legendre`, `eval_hermite`, `eval_chebyt`, …
 - Elliptic integrals: `ellipk`, `ellipe`, `ellipj`
 - Airy functions: `airy`, `airye`
 - Incomplete beta/gamma and distribution helpers: `betainc`, `gammainc`, `stdtr`, …
 - Compiled-vs-`scipy.special` benchmark suite
-- Importable compiled extension module once the reference compiler ships
-  `--ext-module` output
 
 ## Relationship to POST Python
 
