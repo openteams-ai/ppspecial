@@ -105,8 +105,11 @@ kernel module to a native shared library with the reference compiler:
 
 The entire package also builds as one shared library:
 `build_file("ppspecial/__init__.py")` compiles all four translation units
-dependencies-first and links them into a single artifact with every public
-function exported.
+dependencies-first and links them into a single artifact containing all
+lowered public kernel definitions. Until the package ABI is finalized, some
+emitted C symbols are compiler-mangled to avoid libc/libm collisions, and
+Python-level aliases such as `gammaln` and `sigmoid` are not separate native
+symbols.
 
 ## Compiled extension module (NumPy ufuncs)
 
