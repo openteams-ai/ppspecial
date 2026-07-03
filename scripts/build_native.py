@@ -31,10 +31,18 @@ def main() -> int:
             print(f"  {name:10s} FAILED")
             print("    " + "\n    ".join(str(exc).splitlines()[:6]))
 
-    # The full package: one shared library with all four translation units.
+    # The full package: one shared library with all four translation units
+    # plus stable C ABI sidecars (`ppspecial.h`, `ppspecial.json`).
     try:
-        lib = build_file(PACKAGE_DIR / "__init__.py", output=out_dir / "ppspecial.so")
+        lib = build_file(
+            PACKAGE_DIR / "__init__.py",
+            output=out_dir / "ppspecial.so",
+            emit_header=True,
+            emit_manifest=True,
+        )
         print(f"  {'package':10s} OK       -> {lib}")
+        print(f"  {'header':10s} OK       -> {lib.with_suffix('.h')}")
+        print(f"  {'manifest':10s} OK       -> {lib.with_suffix('.json')}")
     except BuildError as exc:
         failures.append("package")
         print(f"  {'package':10s} FAILED")
