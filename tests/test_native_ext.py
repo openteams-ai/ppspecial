@@ -41,7 +41,7 @@ def test_all_public_ufuncs_registered(native):
     registered = {n for n in dir(native) if not n.startswith("_")}
     expected = {
         "erf", "erfc", "erfinv", "erfcinv",
-        "lgamma", "gamma", "digamma", "polygamma", "beta", "lbeta",
+        "lgamma", "gamma", "digamma", "polygamma", "beta", "lbeta", "rgamma",
         "j0", "j1", "y0", "y1", "i0", "i1", "k0", "k1",
         "ndtr", "log_ndtr", "ndtri", "expit", "log_expit", "logit",
         "xlogy", "xlog1py",
@@ -57,6 +57,7 @@ UNARY_CASES = [
     ("erfinv", np.linspace(-0.95, 0.95, 13)),
     ("lgamma", np.linspace(0.2, 12.0, 13)),
     ("gamma", np.linspace(0.2, 6.0, 13)),
+    ("rgamma", np.linspace(-6.0, 6.0, 25)),
     ("digamma", np.linspace(0.3, 10.0, 11)),
     ("j0", np.linspace(-10.0, 10.0, 21)),
     ("j1", np.linspace(-10.0, 10.0, 21)),

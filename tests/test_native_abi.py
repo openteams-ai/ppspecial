@@ -55,6 +55,7 @@ UNARY_CASES = [
     ("erfinv", [0.5], ppspecial.erfinv(0.5), 1e-15),
     ("lgamma", [5.0], math.lgamma(5.0), 1e-14),
     ("gamma", [5.0], 24.0, 1e-12),
+    ("rgamma", [5.0], 1.0 / 24.0, 1e-12),
     ("digamma", [1.0], ppspecial.digamma(1.0), 1e-14),
     ("j0", [0.0], 1.0, 1e-8),
     ("j1", [0.0], 0.0, 1e-15),
