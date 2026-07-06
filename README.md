@@ -52,6 +52,15 @@ reference values.
 
 ## Installation
 
+`ppspecial` follows the POST Python distribution policy:
+
+- PyPI artifacts are pure source (`py3-none-any`) and run in interpreted
+  mode everywhere.
+- Compiled performance should come from environment package managers
+  (pixi/conda, nix, spack) or from an explicit local build.
+- The package never compiles at install time or import time, and does not
+  publish binary wheels.
+
 ### With pip
 
 ```bash
@@ -75,6 +84,7 @@ C compiler for native builds:
 pixi install -e dev
 pixi run -e dev test            # run the test suite (interpreted + compiled)
 pixi run -e dev build-native    # compile the kernels to a plain C shared library
+pixi run -e dev build-prefix    # build libppspecial layout under dist/prefix
 pixi run -e dev build-ext       # build ppspecial_native, a NumPy-ufunc extension
 ```
 
@@ -111,6 +121,24 @@ lowered public kernel definitions. The supported C ABI is the stable
 `ppspecial.json` sidecars. Kernel symbols underneath may still be
 compiler-mangled to avoid libc/libm collisions, but C-compatible consumers
 should call the `pp_*` exports.
+
+For package-manager recipes, use the POST Python CLI prefix layout:
+
+```bash
+postpython build ppspecial/__init__.py --prefix "$PREFIX" --module-name ppspecial
+```
+
+which installs:
+
+```text
+$PREFIX/lib/libppspecial.so                  # .dylib on macOS
+$PREFIX/include/ppspecial.h                  # stable C ABI declarations
+$PREFIX/share/postpython/ppspecial.json      # export manifest
+```
+
+The companion Python package/NumPy extension should be built separately and
+link against the same compiled kernels rather than vendoring private binary
+copies into wheels.
 
 ## Compiled extension module (NumPy ufuncs)
 
