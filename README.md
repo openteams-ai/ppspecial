@@ -41,7 +41,7 @@ same source to a C99 NumPy-ufunc loop in a native shared library.
 | Family | Module | Functions |
 |---|---|---|
 | Error functions | `_erf` | `erf`, `erfc`, `erfinv`, `erfcinv` |
-| Gamma functions | `_gamma` | `lgamma`/`gammaln`, `gamma`, `digamma`, `polygamma`, `beta`, `lbeta` |
+| Gamma functions | `_gamma` | `lgamma`/`gammaln`, `gamma`, `digamma`, `polygamma`, `beta`, `lbeta`, `rgamma` |
 | Bessel functions | `_bessel` | `j0`, `j1`, `y0`, `y1`, `i0`, `i1`, `k0`, `k1` |
 | Statistical | `_stats` | `ndtr`, `log_ndtr`, `ndtri`, `expit`/`sigmoid`, `log_expit`, `logit`, `xlogy`, `xlog1py` |
 

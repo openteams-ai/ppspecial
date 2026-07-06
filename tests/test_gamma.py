@@ -2,7 +2,7 @@
 
 import math
 import pytest
-from ppspecial import lgamma, gamma, digamma, beta, lbeta
+from ppspecial import lgamma, gamma, digamma, beta, lbeta, rgamma
 
 
 def close(a, b, rtol=1e-6):
@@ -81,3 +81,26 @@ class TestBeta:
     def test_lbeta_matches_log_beta(self):
         for a, b in [(1.0, 2.0), (3.0, 4.0)]:
             assert close(lbeta(a, b), math.log(beta(a, b)), rtol=1e-10)
+
+
+class TestRgamma:
+    def test_rgamma_zero(self):
+        # rgamma(0.0) == 0.0, rgamma(-0.0) == -0.0
+        assert rgamma(0.0) == 0.0
+        assert rgamma(-0.0) == -0.0
+
+    def test_rgamma_poles(self):
+        # Zeros at non-positive integers
+        for x in [-1.0, -2.0, -3.0, -10.0]:
+            assert rgamma(x) == 0.0
+
+    def test_rgamma_positive(self):
+        assert close(rgamma(1.0), 1.0)
+        assert close(rgamma(2.0), 1.0)
+        assert close(rgamma(5.0), 1.0 / 24.0)
+
+    def test_rgamma_negative(self):
+        # Test values where 1/gamma(x) is finite and non-zero
+        assert close(rgamma(-0.5), -0.28209479177, rtol=1e-6)
+        assert close(rgamma(-1.5), 0.42314218766, rtol=1e-6)
+

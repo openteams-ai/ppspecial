@@ -265,6 +265,7 @@ Current functions:
 - `polygamma`
 - `beta`
 - `lbeta`
+- `rgamma`
 
 Next work:
 
@@ -275,7 +276,6 @@ Next work:
 
 Candidate future functions:
 
-- `rgamma`
 - `gammainc`
 - `gammaincc`
 - `gammaincinv`

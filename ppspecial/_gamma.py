@@ -202,3 +202,19 @@ def lbeta(a: Float64, b: Float64) -> Float64:
 def beta(a: Float64, b: Float64) -> Float64:
     """Beta function: B(a,b) = Γ(a)Γ(b)/Γ(a+b)"""
     return exp(lbeta(a, b))
+
+
+@vectorize
+def rgamma(x: Float64) -> Float64:
+    """Reciprocal gamma function: 1 / Γ(x).
+    
+    This is an entire function with zeros at non-positive integers.
+    """
+    pi: Float64 = 3.141592653589793
+    if x == 0.0:
+        return x
+    if x < 0.0 and x == floor(x):
+        return 0.0
+    if x > 0.0:
+        return 1.0 / gamma(x)
+    return sin(pi * x) * exp(lgamma(1.0 - x)) / pi

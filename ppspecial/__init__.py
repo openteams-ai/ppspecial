@@ -38,6 +38,7 @@ from ppspecial._gamma import (
     polygamma,
     beta,
     lbeta,
+    rgamma,
 )
 
 from ppspecial._bessel import (
@@ -63,7 +64,7 @@ __all__ = [
     # erf
     "erf", "erfc", "erfinv", "erfcinv",
     # gamma
-    "lgamma", "gammaln", "gamma", "digamma", "polygamma", "beta", "lbeta",
+    "lgamma", "gammaln", "gamma", "digamma", "polygamma", "beta", "lbeta", "rgamma",
     # bessel
     "j0", "j1", "y0", "y1", "i0", "i1", "k0", "k1",
     # stats
