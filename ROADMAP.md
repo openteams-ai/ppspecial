@@ -383,7 +383,7 @@ Candidate functions:
 
 Suggested first slice:
 
-- Implement `hyp0f1` for real `Float64`.
+- Implement `hyp0f1` for real `f64`.
 - Add reference tests over a conservative real domain.
 - Use the work to identify loop, convergence, and error-handling needs in
   postpyc.
@@ -409,7 +409,7 @@ Candidate functions:
 
 Suggested first slice:
 
-- Implement `eval_legendre(n: Int64, x: Float64) -> Float64`.
+- Implement `eval_legendre(n: i64, x: f64) -> f64`.
 - Test recurrence stability and small integer orders.
 - Use this target to exercise mixed integer/float kernels.
 

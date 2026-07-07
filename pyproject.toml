@@ -23,8 +23,8 @@ classifiers = [
     "Topic :: Scientific/Engineering :: Mathematics",
 ]
 dependencies = [
-    "postpyc>=0.2.1",
-    "postyp>=0.2.0",
+    "postpyc>=0.3.0",
+    "postyp>=0.3.0",
 ]
 
 [project.optional-dependencies]

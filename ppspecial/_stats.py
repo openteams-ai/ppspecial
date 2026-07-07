@@ -18,7 +18,7 @@ ndtri  : Acklam rational approximation + Halley polish (via erfinv).
 expit  : numerically stable two-branch implementation.
 """
 
-from postyp import Float64, Bool
+from postyp import f64
 from postpyc import vectorize
 from postpyc.math import exp, log, log1p, fabs
 from ppspecial._erf import erfc, erfinv
@@ -29,9 +29,9 @@ from ppspecial._erf import erfc, erfinv
 # ---------------------------------------------------------------------------
 
 @vectorize
-def ndtr(x: Float64) -> Float64:
+def ndtr(x: f64) -> f64:
     """Standard normal CDF: Φ(x) = P(Z ≤ x) = erfc(-x/√2) / 2."""
-    sqrt2: Float64 = 1.4142135623730951
+    sqrt2: f64 = 1.4142135623730951
     return erfc(-x / sqrt2) * 0.5
 
 
@@ -40,29 +40,29 @@ def ndtr(x: Float64) -> Float64:
 # ---------------------------------------------------------------------------
 
 @vectorize
-def log_ndtr(x: Float64) -> Float64:
+def log_ndtr(x: f64) -> f64:
     """Log of the standard normal CDF: ln Φ(x).
 
     Uses the log-erfc path for x < -1 to stay numerically accurate
     when Φ(x) is very small.
     """
-    log_sqrt2pi: Float64 = 0.9189385332046727   # ln(√(2π))
+    log_sqrt2pi: f64 = 0.9189385332046727   # ln(√(2π))
     if x > 6.0:
         # Φ(x) ≈ 1 — use log1p to preserve precision
-        tail: Float64 = -0.5 * x * x - log_sqrt2pi - log(fabs(x))
+        tail: f64 = -0.5 * x * x - log_sqrt2pi - log(fabs(x))
         return log1p(-exp(tail))
 
     if x > -20.0:
-        p: Float64 = ndtr(x)
+        p: f64 = ndtr(x)
         if p > 0.0:
             return log(p)
         return -1.0e308
 
     # Deep left tail: ln Φ(x) ≈ ln(φ(x)/|x|) where φ is the normal PDF
     # ln Φ(x) ≈ -x²/2 - ln(√(2π)) - ln|x| + series correction
-    t: Float64 = 1.0 / (x * x)
+    t: f64 = 1.0 / (x * x)
     # Asymptotic: -x²/2 - ln(√2π|x|) - 1/(2x²) + 3/(4x⁴) - ...
-    series: Float64 = 1.0 - t * (1.0 - t * (3.0 - t * 15.0))
+    series: f64 = 1.0 - t * (1.0 - t * (3.0 - t * 15.0))
     return -0.5 * x * x - log_sqrt2pi - log(-x) + log(series)
 
 
@@ -71,12 +71,12 @@ def log_ndtr(x: Float64) -> Float64:
 # ---------------------------------------------------------------------------
 
 @vectorize
-def ndtri(x: Float64) -> Float64:
+def ndtri(x: f64) -> f64:
     """Inverse standard normal CDF (probit function): ndtri(ndtr(z)) == z.
 
     Implemented as √2 · erfinv(2x - 1), inheriting erfinv's Halley polish.
     """
-    sqrt2: Float64 = 1.4142135623730951
+    sqrt2: f64 = 1.4142135623730951
     if x <= 0.0:
         return -1.0e308
     if x >= 1.0:
@@ -89,13 +89,13 @@ def ndtri(x: Float64) -> Float64:
 # ---------------------------------------------------------------------------
 
 @vectorize
-def expit(x: Float64) -> Float64:
+def expit(x: f64) -> f64:
     """Logistic sigmoid: expit(x) = 1 / (1 + e^{-x}).
 
     Numerically stable for large |x|.
     """
     if x >= 0.0:
-        z: Float64 = exp(-x)
+        z: f64 = exp(-x)
         return 1.0 / (1.0 + z)
     z = exp(x)
     return z / (1.0 + z)
@@ -106,7 +106,7 @@ sigmoid = expit
 
 
 @vectorize
-def log_expit(x: Float64) -> Float64:
+def log_expit(x: f64) -> f64:
     """ln(expit(x)) = ln(1 / (1 + e^{-x})), numerically stable.
 
     For x >> 0: ≈ -e^{-x} (uses log1p).
@@ -118,7 +118,7 @@ def log_expit(x: Float64) -> Float64:
 
 
 @vectorize
-def logit(x: Float64) -> Float64:
+def logit(x: f64) -> f64:
     """Log-odds: logit(x) = ln(x / (1 - x)), inverse of expit.
 
     Returns -∞ for x ≤ 0, +∞ for x ≥ 1.
@@ -135,7 +135,7 @@ def logit(x: Float64) -> Float64:
 # ---------------------------------------------------------------------------
 
 @vectorize
-def xlogy(x: Float64, y: Float64) -> Float64:
+def xlogy(x: f64, y: f64) -> f64:
     """x · ln(y), with the convention that 0 · ln(0) = 0.
 
     Used in entropy and cross-entropy calculations.
@@ -148,7 +148,7 @@ def xlogy(x: Float64, y: Float64) -> Float64:
 
 
 @vectorize
-def xlog1py(x: Float64, y: Float64) -> Float64:
+def xlog1py(x: f64, y: f64) -> f64:
     """x · ln(1 + y), with the convention that 0 · ln(1 + 0) = 0.
 
     More accurate than xlogy(x, 1+y) when |y| << 1.

@@ -18,7 +18,7 @@ digamma : Asymptotic series with recurrence to shift x ≥ 10.
 gamma   : exp(lgamma(x)) with sign handling for negative x.
 """
 
-from postyp import Float64, Int64, Bool
+from postyp import f64, i64
 from postpyc import vectorize
 from postpyc.math import exp, log, sin, floor, fabs
 
@@ -27,13 +27,13 @@ from postpyc.math import exp, log, sin, floor, fabs
 # lgamma — log Γ(x) for x > 0
 # ---------------------------------------------------------------------------
 
-def _lgamma_stirling(x: Float64) -> Float64:
+def _lgamma_stirling(x: f64) -> f64:
     """Stirling series for lgamma, valid for x >= 12."""
-    half_log_2pi: Float64 = 0.9189385332046727   # ln(2π)/2
-    w: Float64 = 1.0 / (x * x)
+    half_log_2pi: f64 = 0.9189385332046727   # ln(2π)/2
+    w: f64 = 1.0 / (x * x)
     # Horner evaluation of Bernoulli correction in powers of w = 1/x²:
     # 1/12 - w/360 + w²/1260 - w³/1680 + w⁴/1188
-    p: Float64 = 1.0 / 1188.0
+    p: f64 = 1.0 / 1188.0
     p = p * w - 1.0 / 1680.0
     p = p * w + 1.0 / 1260.0
     p = p * w - 1.0 / 360.0
@@ -42,7 +42,7 @@ def _lgamma_stirling(x: Float64) -> Float64:
 
 
 @vectorize
-def lgamma(x: Float64) -> Float64:
+def lgamma(x: f64) -> f64:
     """Natural log of the Gamma function: ln Γ(x), x > 0.
 
     Uses the recurrence Γ(x) = (x-1)·Γ(x-1) to shift into the domain
@@ -52,8 +52,8 @@ def lgamma(x: Float64) -> Float64:
         return 1.0e308    # +∞ at non-positive integers
 
     # Shift x up until x >= 12, accumulating the recurrence correction.
-    z: Float64 = x
-    adj: Float64 = 0.0
+    z: f64 = x
+    adj: f64 = 0.0
     while z < 12.0:
         adj = adj - log(z)
         z = z + 1.0
@@ -70,14 +70,14 @@ gammaln = lgamma
 # ---------------------------------------------------------------------------
 
 @vectorize
-def gamma(x: Float64) -> Float64:
+def gamma(x: f64) -> f64:
     """Gamma function Γ(x).
 
     For x > 0: exp(lgamma(x)).
     For x < 0: uses the reflection formula Γ(x)Γ(1-x) = π/sin(πx).
     Returns +∞ at non-positive integers.
     """
-    pi: Float64 = 3.141592653589793
+    pi: f64 = 3.141592653589793
     if x > 0.0:
         return exp(lgamma(x))
 
@@ -86,7 +86,7 @@ def gamma(x: Float64) -> Float64:
         return 1.0e308    # pole
 
     # Reflection: Γ(x) = π / (sin(πx) · Γ(1-x))
-    s: Float64 = sin(pi * x)
+    s: f64 = sin(pi * x)
     if s == 0.0:
         return 1.0e308
     return pi / (s * exp(lgamma(1.0 - x)))
@@ -96,7 +96,7 @@ def gamma(x: Float64) -> Float64:
 # digamma — ψ(x) = d/dx ln Γ(x)
 # ---------------------------------------------------------------------------
 
-def _digamma_asymptotic(x: Float64) -> Float64:
+def _digamma_asymptotic(x: f64) -> f64:
     """Asymptotic series for digamma, valid for x >= 10.
 
     ψ(x) = ln x − 1/(2x) − 1/(12x²) + 1/(120x⁴) − 1/(252x⁶) + 1/(240x⁸) − …
@@ -104,9 +104,9 @@ def _digamma_asymptotic(x: Float64) -> Float64:
     Derived from -B_{2k}/(2k·x^{2k}) with Bernoulli numbers
     B_2=1/6, B_4=-1/30, B_6=1/42, B_8=-1/30.
     """
-    w: Float64 = 1.0 / (x * x)
+    w: f64 = 1.0 / (x * x)
     # Horner in w = 1/x² for the bracket [ -1/12 + w*(1/120 + w*(-1/252 + w*1/240)) ]
-    p: Float64 = 1.0 / 240.0
+    p: f64 = 1.0 / 240.0
     p = p * w - 1.0 / 252.0
     p = p * w + 1.0 / 120.0
     p = p * w - 1.0 / 12.0
@@ -114,24 +114,24 @@ def _digamma_asymptotic(x: Float64) -> Float64:
 
 
 @vectorize
-def digamma(x: Float64) -> Float64:
+def digamma(x: f64) -> f64:
     """Digamma function ψ(x) = d/dx ln Γ(x).
 
     Uses the recurrence ψ(x+1) = ψ(x) + 1/x to shift into the
     asymptotic regime.  Returns -∞ at non-positive integers.
     """
-    pi: Float64 = 3.141592653589793
+    pi: f64 = 3.141592653589793
     if x <= 0.0:
         if x == floor(x):
             return -1.0e308   # pole
         # Reflection: ψ(1-x) - ψ(x) = π·cot(πx)
         # → ψ(x) = ψ(1-x) - π·cos(πx)/sin(πx)
-        s: Float64 = sin(pi * x)
-        c: Float64 = sin(pi * (0.5 - x))   # cos(πx) = sin(π(0.5-x))
+        s: f64 = sin(pi * x)
+        c: f64 = sin(pi * (0.5 - x))   # cos(πx) = sin(π(0.5-x))
         return digamma(1.0 - x) - pi * c / s
 
-    z: Float64 = x
-    adj: Float64 = 0.0
+    z: f64 = x
+    adj: f64 = 0.0
     while z < 10.0:
         adj = adj - 1.0 / z
         z = z + 1.0
@@ -144,7 +144,7 @@ def digamma(x: Float64) -> Float64:
 # ---------------------------------------------------------------------------
 
 @vectorize
-def polygamma(n: Int64, x: Float64) -> Float64:
+def polygamma(n: i64, x: f64) -> f64:
     """Polygamma function ψ⁽ⁿ⁾(x) = dⁿ⁺¹/dxⁿ⁺¹ ln Γ(x).
 
     n=0 returns digamma(x).  n >= 1 uses the recurrence and asymptotic
@@ -158,8 +158,8 @@ def polygamma(n: Int64, x: Float64) -> Float64:
 
     # For n >= 1, shift x up and use the asymptotic formula:
     # ψ⁽ⁿ⁾(x) ~ (-1)^(n+1) * n! * sum_{k=0}^∞ 1/(x+k)^(n+1)
-    z: Float64 = x
-    adj: Float64 = 0.0
+    z: f64 = x
+    adj: f64 = 0.0
     while z < 10.0:
         # recurrence: ψ⁽ⁿ⁾(x) = ψ⁽ⁿ⁾(x+1) - (-1)^n * n! / x^(n+1)
         adj = adj + 1.0 / (z ** (n + 1))
@@ -168,21 +168,21 @@ def polygamma(n: Int64, x: Float64) -> Float64:
     # Asymptotic: ψ⁽¹⁾(x) = 1/x + 1/(2x²) + 1/(6x³) - 1/(30x⁵) + ...
     # For general n, lead term is n!/x^(n+1)
     # Factorial (n is small in practice)
-    fact: Float64 = 1.0
-    k: Int64 = 1
+    fact: f64 = 1.0
+    k: i64 = 1
     while k <= n:
         fact = fact * k
         k = k + 1
 
-    sign: Float64 = 1.0
+    sign: f64 = 1.0
     if (n + 1) % 2 == 0:
         sign = -1.0
 
-    asymp: Float64 = sign * fact / (z ** (n + 1))
+    asymp: f64 = sign * fact / (z ** (n + 1))
     # Include leading correction term 1/(2 * x^(n+2))... (approx)
-    correction: Float64 = sign * fact * 0.5 * (n + 1) / (z ** (n + 2))
+    correction: f64 = sign * fact * 0.5 * (n + 1) / (z ** (n + 2))
 
-    result: Float64 = asymp + correction
+    result: f64 = asymp + correction
     if n % 2 == 0:
         return -(result + adj)
     return result - adj
@@ -193,24 +193,24 @@ def polygamma(n: Int64, x: Float64) -> Float64:
 # ---------------------------------------------------------------------------
 
 @vectorize
-def lbeta(a: Float64, b: Float64) -> Float64:
+def lbeta(a: f64, b: f64) -> f64:
     """Log of the beta function: ln B(a,b) = ln Γ(a) + ln Γ(b) - ln Γ(a+b)"""
     return lgamma(a) + lgamma(b) - lgamma(a + b)
 
 
 @vectorize
-def beta(a: Float64, b: Float64) -> Float64:
+def beta(a: f64, b: f64) -> f64:
     """Beta function: B(a,b) = Γ(a)Γ(b)/Γ(a+b)"""
     return exp(lbeta(a, b))
 
 
 @vectorize
-def rgamma(x: Float64) -> Float64:
+def rgamma(x: f64) -> f64:
     """Reciprocal gamma function: 1 / Γ(x).
     
     This is an entire function with zeros at non-positive integers.
     """
-    pi: Float64 = 3.141592653589793
+    pi: f64 = 3.141592653589793
     if x == 0.0:
         return x
     if x < 0.0 and x == floor(x):

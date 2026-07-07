@@ -17,15 +17,15 @@ The project serves two purposes:
 ## What a kernel looks like
 
 ```python
-from postyp import Float64
+from postyp import f64
 from postpyc import vectorize
 from postpyc.math import exp
 
 @vectorize
-def expit(x: Float64) -> Float64:
+def expit(x: f64) -> f64:
     """Logistic sigmoid: 1 / (1 + e^{-x}), numerically stable."""
     if x >= 0.0:
-        z: Float64 = exp(-x)
+        z: f64 = exp(-x)
         return 1.0 / (1.0 + z)
     z = exp(x)
     return z / (1.0 + z)
@@ -137,7 +137,7 @@ which installs:
 ```text
 $PREFIX/lib/libppspecial.so                  # .dylib on macOS
 $PREFIX/include/ppspecial.h                  # stable C ABI declarations
-$PREFIX/share/post-py/ppspecial.json         # export manifest
+$PREFIX/share/postpyc/ppspecial.json         # export manifest
 ```
 
 The companion Python package/NumPy extension should be built separately and
