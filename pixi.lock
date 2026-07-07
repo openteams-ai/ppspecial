@@ -44,7 +44,7 @@ environments:
       - conda: https://conda.anaconda.org/conda-forge/linux-64/tk-8.6.13-noxft_h366c992_103.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/tzdata-2025c-hc9c84f9_1.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-64/zstd-1.5.7-hb78ec9c_6.conda
-      - pypi: https://files.pythonhosted.org/packages/c7/5d/d972c4aa8d7680cfbcc1ee3caf61982925caf8d204f0eb01d41b681b561e/postpyc-0.2.0-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/d9/bc/6e4c0029117ba784fc320a672fb4f8d3b070b506e995ab3c34294871b95c/postpyc-0.2.1-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/a3/66/b7b08f32817c6c6b0532177fa7c30c30d9cd18ac6816cc258d443a811f28/postyp-0.2.0-py3-none-any.whl
       - pypi: ./
       linux-aarch64:
@@ -84,7 +84,7 @@ environments:
       - conda: https://conda.anaconda.org/conda-forge/linux-aarch64/tk-8.6.13-noxft_h0dc03b3_103.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/tzdata-2025c-hc9c84f9_1.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-aarch64/zstd-1.5.7-h85ac4a6_6.conda
-      - pypi: https://files.pythonhosted.org/packages/c7/5d/d972c4aa8d7680cfbcc1ee3caf61982925caf8d204f0eb01d41b681b561e/postpyc-0.2.0-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/d9/bc/6e4c0029117ba784fc320a672fb4f8d3b070b506e995ab3c34294871b95c/postpyc-0.2.1-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/a3/66/b7b08f32817c6c6b0532177fa7c30c30d9cd18ac6816cc258d443a811f28/postyp-0.2.0-py3-none-any.whl
       - pypi: ./
       osx-64:
@@ -130,7 +130,7 @@ environments:
       - conda: https://conda.anaconda.org/conda-forge/osx-64/tk-8.6.13-h7142dee_3.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/tzdata-2025c-hc9c84f9_1.conda
       - conda: https://conda.anaconda.org/conda-forge/osx-64/zstd-1.5.7-h3eecb57_6.conda
-      - pypi: https://files.pythonhosted.org/packages/c7/5d/d972c4aa8d7680cfbcc1ee3caf61982925caf8d204f0eb01d41b681b561e/postpyc-0.2.0-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/d9/bc/6e4c0029117ba784fc320a672fb4f8d3b070b506e995ab3c34294871b95c/postpyc-0.2.1-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/a3/66/b7b08f32817c6c6b0532177fa7c30c30d9cd18ac6816cc258d443a811f28/postyp-0.2.0-py3-none-any.whl
       - pypi: ./
       osx-arm64:
@@ -175,7 +175,7 @@ environments:
       - conda: https://conda.anaconda.org/conda-forge/osx-arm64/tk-8.6.13-h010d191_3.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/tzdata-2025c-hc9c84f9_1.conda
       - conda: https://conda.anaconda.org/conda-forge/osx-arm64/zstd-1.5.7-hbf9d68e_6.conda
-      - pypi: https://files.pythonhosted.org/packages/c7/5d/d972c4aa8d7680cfbcc1ee3caf61982925caf8d204f0eb01d41b681b561e/postpyc-0.2.0-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/d9/bc/6e4c0029117ba784fc320a672fb4f8d3b070b506e995ab3c34294871b95c/postpyc-0.2.1-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/a3/66/b7b08f32817c6c6b0532177fa7c30c30d9cd18ac6816cc258d443a811f28/postyp-0.2.0-py3-none-any.whl
       - pypi: ./
       win-64:
@@ -200,7 +200,7 @@ environments:
       - conda: https://conda.anaconda.org/conda-forge/win-64/vs2022_win-64-19.44.35207-ha74f236_39.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/vswhere-3.1.7-h40126e0_1.conda
       - conda: https://conda.anaconda.org/conda-forge/win-64/zstd-1.5.7-h534d264_6.conda
-      - pypi: https://files.pythonhosted.org/packages/c7/5d/d972c4aa8d7680cfbcc1ee3caf61982925caf8d204f0eb01d41b681b561e/postpyc-0.2.0-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/d9/bc/6e4c0029117ba784fc320a672fb4f8d3b070b506e995ab3c34294871b95c/postpyc-0.2.1-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/a3/66/b7b08f32817c6c6b0532177fa7c30c30d9cd18ac6816cc258d443a811f28/postyp-0.2.0-py3-none-any.whl
       - pypi: ./
   dev:
@@ -263,7 +263,7 @@ environments:
       - conda: https://conda.anaconda.org/conda-forge/noarch/typing_extensions-4.16.0-pyhcf101f3_0.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/tzdata-2025c-hc9c84f9_1.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-64/zstd-1.5.7-hb78ec9c_6.conda
-      - pypi: https://files.pythonhosted.org/packages/c7/5d/d972c4aa8d7680cfbcc1ee3caf61982925caf8d204f0eb01d41b681b561e/postpyc-0.2.0-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/d9/bc/6e4c0029117ba784fc320a672fb4f8d3b070b506e995ab3c34294871b95c/postpyc-0.2.1-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/a3/66/b7b08f32817c6c6b0532177fa7c30c30d9cd18ac6816cc258d443a811f28/postyp-0.2.0-py3-none-any.whl
       - pypi: ./
       linux-aarch64:
@@ -319,7 +319,7 @@ environments:
       - conda: https://conda.anaconda.org/conda-forge/noarch/typing_extensions-4.16.0-pyhcf101f3_0.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/tzdata-2025c-hc9c84f9_1.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-aarch64/zstd-1.5.7-h85ac4a6_6.conda
-      - pypi: https://files.pythonhosted.org/packages/c7/5d/d972c4aa8d7680cfbcc1ee3caf61982925caf8d204f0eb01d41b681b561e/postpyc-0.2.0-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/d9/bc/6e4c0029117ba784fc320a672fb4f8d3b070b506e995ab3c34294871b95c/postpyc-0.2.1-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/a3/66/b7b08f32817c6c6b0532177fa7c30c30d9cd18ac6816cc258d443a811f28/postyp-0.2.0-py3-none-any.whl
       - pypi: ./
       osx-64:
@@ -383,7 +383,7 @@ environments:
       - conda: https://conda.anaconda.org/conda-forge/noarch/typing_extensions-4.16.0-pyhcf101f3_0.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/tzdata-2025c-hc9c84f9_1.conda
       - conda: https://conda.anaconda.org/conda-forge/osx-64/zstd-1.5.7-h3eecb57_6.conda
-      - pypi: https://files.pythonhosted.org/packages/c7/5d/d972c4aa8d7680cfbcc1ee3caf61982925caf8d204f0eb01d41b681b561e/postpyc-0.2.0-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/d9/bc/6e4c0029117ba784fc320a672fb4f8d3b070b506e995ab3c34294871b95c/postpyc-0.2.1-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/a3/66/b7b08f32817c6c6b0532177fa7c30c30d9cd18ac6816cc258d443a811f28/postyp-0.2.0-py3-none-any.whl
       - pypi: ./
       osx-arm64:
@@ -446,7 +446,7 @@ environments:
       - conda: https://conda.anaconda.org/conda-forge/noarch/typing_extensions-4.16.0-pyhcf101f3_0.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/tzdata-2025c-hc9c84f9_1.conda
       - conda: https://conda.anaconda.org/conda-forge/osx-arm64/zstd-1.5.7-hbf9d68e_6.conda
-      - pypi: https://files.pythonhosted.org/packages/c7/5d/d972c4aa8d7680cfbcc1ee3caf61982925caf8d204f0eb01d41b681b561e/postpyc-0.2.0-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/d9/bc/6e4c0029117ba784fc320a672fb4f8d3b070b506e995ab3c34294871b95c/postpyc-0.2.1-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/a3/66/b7b08f32817c6c6b0532177fa7c30c30d9cd18ac6816cc258d443a811f28/postyp-0.2.0-py3-none-any.whl
       - pypi: ./
       win-64:
@@ -493,7 +493,7 @@ environments:
       - conda: https://conda.anaconda.org/conda-forge/win-64/vs2022_win-64-19.44.35207-ha74f236_39.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/vswhere-3.1.7-h40126e0_1.conda
       - conda: https://conda.anaconda.org/conda-forge/win-64/zstd-1.5.7-h534d264_6.conda
-      - pypi: https://files.pythonhosted.org/packages/c7/5d/d972c4aa8d7680cfbcc1ee3caf61982925caf8d204f0eb01d41b681b561e/postpyc-0.2.0-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/d9/bc/6e4c0029117ba784fc320a672fb4f8d3b070b506e995ab3c34294871b95c/postpyc-0.2.1-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/a3/66/b7b08f32817c6c6b0532177fa7c30c30d9cd18ac6816cc258d443a811f28/postyp-0.2.0-py3-none-any.whl
       - pypi: ./
 packages:
@@ -2766,10 +2766,10 @@ packages:
   - pkg:pypi/pluggy?source=hash-mapping
   size: 25877
   timestamp: 1764896838868
-- pypi: https://files.pythonhosted.org/packages/c7/5d/d972c4aa8d7680cfbcc1ee3caf61982925caf8d204f0eb01d41b681b561e/postpyc-0.2.0-py3-none-any.whl
+- pypi: https://files.pythonhosted.org/packages/d9/bc/6e4c0029117ba784fc320a672fb4f8d3b070b506e995ab3c34294871b95c/postpyc-0.2.1-py3-none-any.whl
   name: postpyc
-  version: 0.2.0
-  sha256: f9899c1a3a3b878c0fda2488ee3df72d99a9ce2db6541a15253a4db3f9bf10bf
+  version: 0.2.1
+  sha256: d9e6324335dfb8b8c787f551133bf418091dbe0a34dc4e31c4e67238a9abaa6d
   requires_dist:
   - postyp>=0.2.0
   - narwhals ; extra == 'dev'
@@ -2787,9 +2787,9 @@ packages:
 - pypi: ./
   name: ppspecial
   version: 0.1.1
-  sha256: 060c0e6eedf9ab91d9cf75fe319328bc2390536bd7027830c5adb74505b25b63
+  sha256: ebac4d9c3a5976453462679216c520326d50a07e9ac0fd4b3e95d12011dcfe8e
   requires_dist:
-  - postpyc
+  - postpyc>=0.2.1
   - postyp>=0.2.0
   - numpy ; extra == 'numpy'
   - pytest>=7 ; extra == 'dev'

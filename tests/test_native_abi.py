@@ -28,9 +28,8 @@ def native_artifact(tmp_path_factory):
 
     out_dir = tmp_path_factory.mktemp("ppspecial-native-abi")
     lib_path = build_file(
-        Path(ppspecial.__file__).with_name("_kernels.py"),
+        Path(ppspecial.__file__),
         output=out_dir / "ppspecial.so",
-        module_name="ppspecial",
         emit_header=True,
         emit_manifest=True,
     )
