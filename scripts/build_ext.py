@@ -14,14 +14,14 @@ from pathlib import Path
 from postpyc.build import build_file, BuildError
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
-KERNEL_ENTRY = REPO_ROOT / "ppspecial" / "_kernels.py"
+PACKAGE_ENTRY = REPO_ROOT / "ppspecial" / "__init__.py"
 MODULE_NAME = "ppspecial_native"
 
 
 def main() -> int:
     try:
         ext_path = build_file(
-            KERNEL_ENTRY,
+            PACKAGE_ENTRY,
             ext_module=True,
             module_name=MODULE_NAME,
         )

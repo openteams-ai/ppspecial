@@ -118,7 +118,7 @@ kernel module to a native shared library with the reference compiler:
 | `_stats` | ✅ compiles natively (links against `_erf`'s compiled `erfc`/`erfinv` via cross-module POST compilation) |
 
 The entire package also builds as one shared library:
-`build_file("ppspecial/_kernels.py")` compiles all four translation units
+`build_file("ppspecial/__init__.py")` compiles all four translation units
 dependencies-first and links them into a single artifact containing all
 lowered public kernel definitions. The supported C ABI is the stable
 `pp_<name>` namespace described by the generated `ppspecial.h` and
@@ -129,7 +129,7 @@ should call the `pp_*` exports.
 For package-manager recipes, use the postpyc CLI prefix layout:
 
 ```bash
-postpyc build ppspecial/_kernels.py --prefix "$PREFIX" --module-name ppspecial
+postpyc build ppspecial/__init__.py --prefix "$PREFIX" --module-name ppspecial
 ```
 
 which installs:
@@ -137,7 +137,7 @@ which installs:
 ```text
 $PREFIX/lib/libppspecial.so                  # .dylib on macOS
 $PREFIX/include/ppspecial.h                  # stable C ABI declarations
-$PREFIX/share/postpyc/ppspecial.json         # export manifest
+$PREFIX/share/post-py/ppspecial.json         # export manifest
 ```
 
 The companion Python package/NumPy extension should be built separately and
