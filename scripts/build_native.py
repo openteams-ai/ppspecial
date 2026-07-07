@@ -3,7 +3,7 @@
 Every module must build (the reference compiler supports cross-module
 lowering and linking, so _stats links against _erf's compiled erfc and
 erfinv). The whole package is also built into a single shared library
-from ppspecial/__init__.py. Any failure exits non-zero.
+from ppspecial/_kernels.py. Any failure exits non-zero.
 """
 
 import sys
@@ -13,6 +13,7 @@ from pathlib import Path
 from postpyc.build import build_file, BuildError
 
 PACKAGE_DIR = Path(__file__).resolve().parent.parent / "ppspecial"
+KERNEL_ENTRY = PACKAGE_DIR / "_kernels.py"
 
 EXPECTED_NATIVE = ["_erf", "_bessel", "_gamma", "_stats"]
 
@@ -35,8 +36,9 @@ def main() -> int:
     # plus stable C ABI sidecars (`ppspecial.h`, `ppspecial.json`).
     try:
         lib = build_file(
-            PACKAGE_DIR / "__init__.py",
+            KERNEL_ENTRY,
             output=out_dir / "ppspecial.so",
+            module_name="ppspecial",
             emit_header=True,
             emit_manifest=True,
         )

@@ -35,6 +35,11 @@ Under CPython this is immediately callable (scalars, or NumPy arrays with
 broadcasting when NumPy is installed). The postpyc compiler lowers the
 same source to a C99 NumPy-ufunc loop in a native shared library.
 
+When the optional `ppspecial_native` extension is installed next to the Python
+package, `import ppspecial` automatically prefers those compiled ufuncs for
+matching public functions. If the extension is absent, the same import falls
+back to the interpreted source kernels.
+
 ## Implemented functions
 
 | Family | Module | Functions |
@@ -113,7 +118,7 @@ kernel module to a native shared library with the reference compiler:
 | `_stats` | ✅ compiles natively (links against `_erf`'s compiled `erfc`/`erfinv` via cross-module POST compilation) |
 
 The entire package also builds as one shared library:
-`build_file("ppspecial/__init__.py")` compiles all four translation units
+`build_file("ppspecial/_kernels.py")` compiles all four translation units
 dependencies-first and links them into a single artifact containing all
 lowered public kernel definitions. The supported C ABI is the stable
 `pp_<name>` namespace described by the generated `ppspecial.h` and
@@ -124,7 +129,7 @@ should call the `pp_*` exports.
 For package-manager recipes, use the postpyc CLI prefix layout:
 
 ```bash
-postpyc build ppspecial/__init__.py --prefix "$PREFIX" --module-name ppspecial
+postpyc build ppspecial/_kernels.py --prefix "$PREFIX" --module-name ppspecial
 ```
 
 which installs:
@@ -153,6 +158,16 @@ type(pps.erf)                      # <class 'numpy.ufunc'>
 pps.erf(np.linspace(-3, 3, 7))     # native speed, NumPy broadcasting
 pps.ndtr(x, out=buffer)            # out=, where=, dtype dispatch — all ufunc goodies
 help(pps.ndtr)                     # shows the original postpyc docstring
+```
+
+If `ppspecial_native` is importable, the top-level `ppspecial` package uses it
+by default:
+
+```python
+import ppspecial as pps
+
+pps.__native_available__           # True when native ufuncs were selected
+type(pps.erf)                      # <class 'numpy.ufunc'> with the extension
 ```
 
 The extension delegates to the same compiled translation units as the plain

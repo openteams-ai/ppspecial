@@ -72,5 +72,5 @@ dev = { features = ["dev"], solve-group = "default" }
 [tool.pixi.tasks]
 test = { cmd = "pytest tests/", description = "Run the test suite (interpreted mode)." }
 build-native = { cmd = "python scripts/build_native.py", description = "Compile each kernel module to a native shared library and report status." }
-build-prefix = { cmd = "postpyc build ppspecial/__init__.py --prefix dist/prefix --module-name ppspecial", description = "Build the libppspecial package-manager layout under dist/prefix." }
+build-prefix = { cmd = "postpyc build ppspecial/_kernels.py --prefix dist/prefix --module-name ppspecial", description = "Build the libppspecial package-manager layout under dist/prefix." }
 build-ext = { cmd = "python scripts/build_ext.py", description = "Build ppspecial_native, an importable NumPy-ufunc extension module." }
