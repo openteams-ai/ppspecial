@@ -2,7 +2,7 @@
 
 Produces `ppspecial_native.<ext-suffix>` in the repository root: a real
 extension module whose attributes are numpy.ufunc objects registered from
-the compiled kernels (POST Python `ext_module=True` output). This target
+the compiled kernels (postpyc `ext_module=True` output). This target
 is intentionally separate from the plain C shared library built by
 scripts/build_native.py; both link the same compiled translation units.
 """
@@ -11,7 +11,7 @@ import importlib.util
 import sys
 from pathlib import Path
 
-from postpython.build import build_file, BuildError
+from postpyc.build import build_file, BuildError
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 PACKAGE_INIT = REPO_ROOT / "ppspecial" / "__init__.py"

@@ -1,17 +1,16 @@
 # ppspecial
 
 `ppspecial` is a reimplementation of `scipy.special`, written entirely in
-[POST Python](https://github.com/openteams-ai/postpython) — Performance
-Optimized Statically Typed Python. Every function is an ordinary,
+postpyc's typed Python subset. Every function is an ordinary,
 fully-typed `.py` kernel that runs under the standard CPython interpreter
-**and** compiles ahead-of-time to native shared-library code with the POST
-Python reference compiler.
+**and** compiles ahead-of-time to native shared-library code with the
+postpyc reference compiler.
 
 The project serves two purposes:
 
 1. A practical special-function library with a scipy-compatible API surface.
 2. The flagship, real-world consumer of the
-   [POST Python standard](https://github.com/openteams-ai/postpython/blob/main/docs/spec.md)
+   postpyc standard
    — living proof that a numerical library can be written once in a typed
    Python subset and both interpreted and compiled.
 
@@ -19,8 +18,8 @@ The project serves two purposes:
 
 ```python
 from postyp import Float64
-from postpython import vectorize
-from postpython.math import exp
+from postpyc import vectorize
+from postpyc.math import exp
 
 @vectorize
 def expit(x: Float64) -> Float64:
@@ -33,7 +32,7 @@ def expit(x: Float64) -> Float64:
 ```
 
 Under CPython this is immediately callable (scalars, or NumPy arrays with
-broadcasting when NumPy is installed). The POST Python compiler lowers the
+broadcasting when NumPy is installed). The postpyc compiler lowers the
 same source to a C99 NumPy-ufunc loop in a native shared library.
 
 ## Implemented functions
@@ -52,7 +51,7 @@ reference values.
 
 ## Installation
 
-`ppspecial` follows the POST Python distribution policy:
+`ppspecial` follows the postpyc distribution policy:
 
 - PyPI artifacts are pure source (`py3-none-any`) and run in interpreted
   mode everywhere.
@@ -122,10 +121,10 @@ lowered public kernel definitions. The supported C ABI is the stable
 compiler-mangled to avoid libc/libm collisions, but C-compatible consumers
 should call the `pp_*` exports.
 
-For package-manager recipes, use the POST Python CLI prefix layout:
+For package-manager recipes, use the postpyc CLI prefix layout:
 
 ```bash
-postpython build ppspecial/__init__.py --prefix "$PREFIX" --module-name ppspecial
+postpyc build ppspecial/__init__.py --prefix "$PREFIX" --module-name ppspecial
 ```
 
 which installs:
@@ -133,7 +132,7 @@ which installs:
 ```text
 $PREFIX/lib/libppspecial.so                  # .dylib on macOS
 $PREFIX/include/ppspecial.h                  # stable C ABI declarations
-$PREFIX/share/postpython/ppspecial.json      # export manifest
+$PREFIX/share/postpyc/ppspecial.json         # export manifest
 ```
 
 The companion Python package/NumPy extension should be built separately and
@@ -153,7 +152,7 @@ import ppspecial_native as pps
 type(pps.erf)                      # <class 'numpy.ufunc'>
 pps.erf(np.linspace(-3, 3, 7))     # native speed, NumPy broadcasting
 pps.ndtr(x, out=buffer)            # out=, where=, dtype dispatch — all ufunc goodies
-help(pps.ndtr)                     # shows the original POST Python docstring
+help(pps.ndtr)                     # shows the original postpyc docstring
 ```
 
 The extension delegates to the same compiled translation units as the plain
@@ -176,7 +175,7 @@ without source changes.
 The detailed cooperative roadmap is maintained in
 [`ROADMAP.md`](ROADMAP.md). It breaks the project into publishable targets
 for ppspecial library work, native C ABI work, NumPy extension work, and
-POST Python compiler/spec requests discovered from this library.
+postpyc compiler/spec requests discovered from this library.
 
 - Hypergeometric functions: `hyp1f1`, `hyp2f1`, `hyp0f1`
 - Orthogonal polynomials: `eval_legendre`, `eval_hermite`, `eval_chebyt`, …
@@ -185,14 +184,14 @@ POST Python compiler/spec requests discovered from this library.
 - Incomplete beta/gamma and distribution helpers: `betainc`, `gammainc`, `stdtr`, …
 - Compiled-vs-`scipy.special` benchmark suite
 
-## Relationship to POST Python
+## Relationship to postpyc
 
-POST Python is a specification for a compilable, statically-typed subset of
+postpyc is a specification for a compilable, statically-typed subset of
 Python, with a reference checker and compiler. `ppspecial` intentionally
 contains **no compiler-specific code** — just typed Python that conforms to
 the spec's POST Core and POST Ufunc ABI profiles. Any conforming compiler
 should be able to build it.
 
 Issues that ppspecial surfaces in the reference compiler get fixed in
-[openteams-ai/postpython](https://github.com/openteams-ai/postpython); this
-repository stays pure POST Python.
+the postpyc project; this
+repository stays pure postpyc.

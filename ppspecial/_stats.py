@@ -19,8 +19,8 @@ expit  : numerically stable two-branch implementation.
 """
 
 from postyp import Float64, Bool
-from postpython import vectorize
-from postpython.math import exp, log, log1p, fabs
+from postpyc import vectorize
+from postpyc.math import exp, log, log1p, fabs
 from ppspecial._erf import erfc, erfinv
 
 

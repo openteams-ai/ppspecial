@@ -20,12 +20,12 @@ Maximum relative error < 1.7e-8.
 """
 
 from postyp import Float64
-from postpython import vectorize
-from postpython.math import exp, log, sqrt, sin, cos, fabs
+from postpyc import vectorize
+from postpyc.math import exp, log, sqrt, sin, cos, fabs
 
 
 # π-derived constants are function-local so the kernels compile with
-# today's POST Python reference compiler; they can return to module scope
+# today's postpyc reference compiler; they can return to module scope
 # once module-level constants are lowered.
 #   two_over_pi = 0.6366197723675814   # 2/π
 #   pi_over_4   = 0.7853981633974483   # π/4

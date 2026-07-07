@@ -19,8 +19,8 @@ gamma   : exp(lgamma(x)) with sign handling for negative x.
 """
 
 from postyp import Float64, Int64, Bool
-from postpython import vectorize
-from postpython.math import exp, log, sin, floor, fabs
+from postpyc import vectorize
+from postpyc.math import exp, log, sin, floor, fabs
 
 
 # ---------------------------------------------------------------------------
