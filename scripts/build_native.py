@@ -10,7 +10,7 @@ import sys
 import tempfile
 from pathlib import Path
 
-from postpython.build import build_file, BuildError
+from postpyc.build import build_file, BuildError
 
 PACKAGE_DIR = Path(__file__).resolve().parent.parent / "ppspecial"
 

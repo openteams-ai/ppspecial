@@ -24,7 +24,7 @@ pytestmark = pytest.mark.skipif(cc is None, reason="No C compiler available")
 
 @pytest.fixture(scope="module")
 def native_artifact(tmp_path_factory):
-    from postpython.build import build_file
+    from postpyc.build import build_file
 
     out_dir = tmp_path_factory.mktemp("ppspecial-native-abi")
     lib_path = build_file(

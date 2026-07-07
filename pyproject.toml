@@ -7,11 +7,11 @@ build-backend = "hatchling.build"
 [project]
 name = "ppspecial"
 version = "0.1.0"
-description = "scipy.special reimplemented in POST Python — typed, vectorized special-function kernels that compile to native code."
+description = "scipy.special reimplemented in postpyc — typed, vectorized special-function kernels that compile to native code."
 readme = "README.md"
 requires-python = ">=3.10"
 authors = [{ name = "Travis E. Oliphant" }]
-keywords = ["special-functions", "scipy", "ufunc", "postpython", "aot", "numerical"]
+keywords = ["special-functions", "scipy", "ufunc", "postpyc", "postyp", "aot", "numerical"]
 classifiers = [
     "Development Status :: 3 - Alpha",
     "Intended Audience :: Science/Research",
@@ -23,7 +23,8 @@ classifiers = [
     "Topic :: Scientific/Engineering :: Mathematics",
 ]
 dependencies = [
-    "postpython @ git+https://github.com/openteams-ai/postpython.git",
+    "postpyc",
+    "postyp>=0.2.0",
 ]
 
 [project.optional-dependencies]
@@ -32,7 +33,7 @@ dev = ["pytest>=7", "numpy"]
 
 [project.urls]
 Repository = "https://github.com/openteams-ai/ppspecial"
-Standard = "https://github.com/openteams-ai/postpython/blob/main/docs/spec.md"
+Standard = "https://github.com/openteams-ai/postpyc/blob/main/docs/spec.md"
 
 # ─── Build configuration ─────────────────────────────────────────────────────
 
@@ -71,5 +72,5 @@ dev = { features = ["dev"], solve-group = "default" }
 [tool.pixi.tasks]
 test = { cmd = "pytest tests/", description = "Run the test suite (interpreted mode)." }
 build-native = { cmd = "python scripts/build_native.py", description = "Compile each kernel module to a native shared library and report status." }
-build-prefix = { cmd = "postpython build ppspecial/__init__.py --prefix dist/prefix --module-name ppspecial", description = "Build the libppspecial package-manager layout under dist/prefix." }
+build-prefix = { cmd = "postpyc build ppspecial/__init__.py --prefix dist/prefix --module-name ppspecial", description = "Build the libppspecial package-manager layout under dist/prefix." }
 build-ext = { cmd = "python scripts/build_ext.py", description = "Build ppspecial_native, an importable NumPy-ufunc extension module." }

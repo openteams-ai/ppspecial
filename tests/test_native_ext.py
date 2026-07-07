@@ -21,7 +21,7 @@ pytestmark = pytest.mark.skipif(cc is None, reason="No C compiler available")
 
 @pytest.fixture(scope="module")
 def native(tmp_path_factory):
-    from postpython.build import build_file
+    from postpyc.build import build_file
     from pathlib import Path
 
     out_dir = tmp_path_factory.mktemp("ppspecial-ext")

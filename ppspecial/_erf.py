@@ -16,8 +16,8 @@ erfinv: Rational approximation by Peter J. Acklam (2003).
 """
 
 from postyp import Float64, Bool
-from postpython import vectorize
-from postpython.math import exp, log, sqrt, fabs
+from postpyc import vectorize
+from postpyc.math import exp, log, sqrt, fabs
 
 
 # ---------------------------------------------------------------------------
@@ -75,7 +75,7 @@ def _ndtri_rational(p: Float64) -> Float64:
     """Acklam rational approximation for ndtri(p) = sqrt(2)*erfinv(2p-1).
 
     Coefficients (Peter J. Acklam, 2003) are function-local so the kernel
-    compiles with today's POST Python reference compiler; they can return
+    compiles with today's postpyc reference compiler; they can return
     to module scope once module-level constants are lowered.
     """
     # Central region coefficients (|p - 0.5| <= 0.425)
