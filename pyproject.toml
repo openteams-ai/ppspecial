@@ -6,7 +6,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "ppspecial"
-version = "0.1.1"
+version = "0.1.2"
 description = "scipy.special reimplemented in postpyc — typed, vectorized special-function kernels that compile to native code."
 readme = "README.md"
 requires-python = ">=3.10"

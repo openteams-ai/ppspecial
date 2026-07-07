@@ -2786,8 +2786,8 @@ packages:
   requires_python: '>=3.10'
 - pypi: ./
   name: ppspecial
-  version: 0.1.1
-  sha256: 12e12cf9f003c19b14cd2ec36f32477ead9844ff3518cdd9dd6dc3ec8dd91630
+  version: 0.1.2
+  sha256: ee9e11cd3fe480f45882e8370fe6e3eb492504e7178099d5c43ba739c790dad2
   requires_dist:
   - postpyc>=0.3.0
   - postyp>=0.3.0
