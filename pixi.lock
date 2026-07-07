@@ -2787,7 +2787,7 @@ packages:
 - pypi: ./
   name: ppspecial
   version: 0.1.0
-  sha256: 58313fe28014c4e8c54711109352bbc44fe2ece90d8618f1ede18a9bc8c960e5
+  sha256: 6f409e23b386680aa72a680b817b7ccc334c7aa66fd4bee8e6b692887971747f
   requires_dist:
   - postpyc
   - postyp>=0.2.0

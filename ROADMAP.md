@@ -457,7 +457,7 @@ Deliverables:
 - `pixi run build-prefix` / package recipes use:
 
   ```bash
-  postpyc build ppspecial/__init__.py --prefix "$PREFIX" --module-name ppspecial
+  postpyc build ppspecial/_kernels.py --prefix "$PREFIX" --module-name ppspecial
   ```
 
 - Versioned release notes that distinguish:

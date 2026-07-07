@@ -26,7 +26,7 @@ def native(tmp_path_factory):
 
     out_dir = tmp_path_factory.mktemp("ppspecial-ext")
     ext = build_file(
-        Path(ppspecial.__file__),
+        Path(ppspecial.__file__).with_name("_kernels.py"),
         ext_module=True,
         module_name="ppspecial_native_test",
         output=out_dir / "ppspecial_native_test.so",
