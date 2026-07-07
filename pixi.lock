@@ -44,8 +44,8 @@ environments:
       - conda: https://conda.anaconda.org/conda-forge/linux-64/tk-8.6.13-noxft_h366c992_103.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/tzdata-2025c-hc9c84f9_1.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-64/zstd-1.5.7-hb78ec9c_6.conda
-      - pypi: https://files.pythonhosted.org/packages/d9/bc/6e4c0029117ba784fc320a672fb4f8d3b070b506e995ab3c34294871b95c/postpyc-0.2.1-py3-none-any.whl
-      - pypi: https://files.pythonhosted.org/packages/a3/66/b7b08f32817c6c6b0532177fa7c30c30d9cd18ac6816cc258d443a811f28/postyp-0.2.0-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/ce/3e/0ad76bec7d3046c8e92eef1d5dae9518bdfdac6971e925e53da5d5b95e61/postpyc-0.3.0-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/ee/24/09c87a12b05eee582a63871eeeacc666fcf5cc6c62b6f78669c5829681b8/postyp-0.3.0-py3-none-any.whl
       - pypi: ./
       linux-aarch64:
       - conda: https://conda.anaconda.org/conda-forge/linux-aarch64/_openmp_mutex-4.5-20_gnu.conda
@@ -84,8 +84,8 @@ environments:
       - conda: https://conda.anaconda.org/conda-forge/linux-aarch64/tk-8.6.13-noxft_h0dc03b3_103.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/tzdata-2025c-hc9c84f9_1.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-aarch64/zstd-1.5.7-h85ac4a6_6.conda
-      - pypi: https://files.pythonhosted.org/packages/d9/bc/6e4c0029117ba784fc320a672fb4f8d3b070b506e995ab3c34294871b95c/postpyc-0.2.1-py3-none-any.whl
-      - pypi: https://files.pythonhosted.org/packages/a3/66/b7b08f32817c6c6b0532177fa7c30c30d9cd18ac6816cc258d443a811f28/postyp-0.2.0-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/ce/3e/0ad76bec7d3046c8e92eef1d5dae9518bdfdac6971e925e53da5d5b95e61/postpyc-0.3.0-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/ee/24/09c87a12b05eee582a63871eeeacc666fcf5cc6c62b6f78669c5829681b8/postyp-0.3.0-py3-none-any.whl
       - pypi: ./
       osx-64:
       - conda: https://conda.anaconda.org/conda-forge/osx-64/bzip2-1.0.8-h500dc9f_9.conda
@@ -130,8 +130,8 @@ environments:
       - conda: https://conda.anaconda.org/conda-forge/osx-64/tk-8.6.13-h7142dee_3.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/tzdata-2025c-hc9c84f9_1.conda
       - conda: https://conda.anaconda.org/conda-forge/osx-64/zstd-1.5.7-h3eecb57_6.conda
-      - pypi: https://files.pythonhosted.org/packages/d9/bc/6e4c0029117ba784fc320a672fb4f8d3b070b506e995ab3c34294871b95c/postpyc-0.2.1-py3-none-any.whl
-      - pypi: https://files.pythonhosted.org/packages/a3/66/b7b08f32817c6c6b0532177fa7c30c30d9cd18ac6816cc258d443a811f28/postyp-0.2.0-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/ce/3e/0ad76bec7d3046c8e92eef1d5dae9518bdfdac6971e925e53da5d5b95e61/postpyc-0.3.0-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/ee/24/09c87a12b05eee582a63871eeeacc666fcf5cc6c62b6f78669c5829681b8/postyp-0.3.0-py3-none-any.whl
       - pypi: ./
       osx-arm64:
       - conda: https://conda.anaconda.org/conda-forge/osx-arm64/bzip2-1.0.8-hd037594_9.conda
@@ -175,8 +175,8 @@ environments:
       - conda: https://conda.anaconda.org/conda-forge/osx-arm64/tk-8.6.13-h010d191_3.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/tzdata-2025c-hc9c84f9_1.conda
       - conda: https://conda.anaconda.org/conda-forge/osx-arm64/zstd-1.5.7-hbf9d68e_6.conda
-      - pypi: https://files.pythonhosted.org/packages/d9/bc/6e4c0029117ba784fc320a672fb4f8d3b070b506e995ab3c34294871b95c/postpyc-0.2.1-py3-none-any.whl
-      - pypi: https://files.pythonhosted.org/packages/a3/66/b7b08f32817c6c6b0532177fa7c30c30d9cd18ac6816cc258d443a811f28/postyp-0.2.0-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/ce/3e/0ad76bec7d3046c8e92eef1d5dae9518bdfdac6971e925e53da5d5b95e61/postpyc-0.3.0-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/ee/24/09c87a12b05eee582a63871eeeacc666fcf5cc6c62b6f78669c5829681b8/postyp-0.3.0-py3-none-any.whl
       - pypi: ./
       win-64:
       - conda: https://conda.anaconda.org/conda-forge/win-64/bzip2-1.0.8-h0ad9c76_9.conda
@@ -200,8 +200,8 @@ environments:
       - conda: https://conda.anaconda.org/conda-forge/win-64/vs2022_win-64-19.44.35207-ha74f236_39.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/vswhere-3.1.7-h40126e0_1.conda
       - conda: https://conda.anaconda.org/conda-forge/win-64/zstd-1.5.7-h534d264_6.conda
-      - pypi: https://files.pythonhosted.org/packages/d9/bc/6e4c0029117ba784fc320a672fb4f8d3b070b506e995ab3c34294871b95c/postpyc-0.2.1-py3-none-any.whl
-      - pypi: https://files.pythonhosted.org/packages/a3/66/b7b08f32817c6c6b0532177fa7c30c30d9cd18ac6816cc258d443a811f28/postyp-0.2.0-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/ce/3e/0ad76bec7d3046c8e92eef1d5dae9518bdfdac6971e925e53da5d5b95e61/postpyc-0.3.0-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/ee/24/09c87a12b05eee582a63871eeeacc666fcf5cc6c62b6f78669c5829681b8/postyp-0.3.0-py3-none-any.whl
       - pypi: ./
   dev:
     channels:
@@ -263,8 +263,8 @@ environments:
       - conda: https://conda.anaconda.org/conda-forge/noarch/typing_extensions-4.16.0-pyhcf101f3_0.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/tzdata-2025c-hc9c84f9_1.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-64/zstd-1.5.7-hb78ec9c_6.conda
-      - pypi: https://files.pythonhosted.org/packages/d9/bc/6e4c0029117ba784fc320a672fb4f8d3b070b506e995ab3c34294871b95c/postpyc-0.2.1-py3-none-any.whl
-      - pypi: https://files.pythonhosted.org/packages/a3/66/b7b08f32817c6c6b0532177fa7c30c30d9cd18ac6816cc258d443a811f28/postyp-0.2.0-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/ce/3e/0ad76bec7d3046c8e92eef1d5dae9518bdfdac6971e925e53da5d5b95e61/postpyc-0.3.0-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/ee/24/09c87a12b05eee582a63871eeeacc666fcf5cc6c62b6f78669c5829681b8/postyp-0.3.0-py3-none-any.whl
       - pypi: ./
       linux-aarch64:
       - conda: https://conda.anaconda.org/conda-forge/linux-aarch64/_openmp_mutex-4.5-20_gnu.conda
@@ -319,8 +319,8 @@ environments:
       - conda: https://conda.anaconda.org/conda-forge/noarch/typing_extensions-4.16.0-pyhcf101f3_0.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/tzdata-2025c-hc9c84f9_1.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-aarch64/zstd-1.5.7-h85ac4a6_6.conda
-      - pypi: https://files.pythonhosted.org/packages/d9/bc/6e4c0029117ba784fc320a672fb4f8d3b070b506e995ab3c34294871b95c/postpyc-0.2.1-py3-none-any.whl
-      - pypi: https://files.pythonhosted.org/packages/a3/66/b7b08f32817c6c6b0532177fa7c30c30d9cd18ac6816cc258d443a811f28/postyp-0.2.0-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/ce/3e/0ad76bec7d3046c8e92eef1d5dae9518bdfdac6971e925e53da5d5b95e61/postpyc-0.3.0-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/ee/24/09c87a12b05eee582a63871eeeacc666fcf5cc6c62b6f78669c5829681b8/postyp-0.3.0-py3-none-any.whl
       - pypi: ./
       osx-64:
       - conda: https://conda.anaconda.org/conda-forge/osx-64/_openmp_mutex-4.5-7_kmp_llvm.conda
@@ -383,8 +383,8 @@ environments:
       - conda: https://conda.anaconda.org/conda-forge/noarch/typing_extensions-4.16.0-pyhcf101f3_0.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/tzdata-2025c-hc9c84f9_1.conda
       - conda: https://conda.anaconda.org/conda-forge/osx-64/zstd-1.5.7-h3eecb57_6.conda
-      - pypi: https://files.pythonhosted.org/packages/d9/bc/6e4c0029117ba784fc320a672fb4f8d3b070b506e995ab3c34294871b95c/postpyc-0.2.1-py3-none-any.whl
-      - pypi: https://files.pythonhosted.org/packages/a3/66/b7b08f32817c6c6b0532177fa7c30c30d9cd18ac6816cc258d443a811f28/postyp-0.2.0-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/ce/3e/0ad76bec7d3046c8e92eef1d5dae9518bdfdac6971e925e53da5d5b95e61/postpyc-0.3.0-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/ee/24/09c87a12b05eee582a63871eeeacc666fcf5cc6c62b6f78669c5829681b8/postyp-0.3.0-py3-none-any.whl
       - pypi: ./
       osx-arm64:
       - conda: https://conda.anaconda.org/conda-forge/osx-arm64/_openmp_mutex-4.5-7_kmp_llvm.conda
@@ -446,8 +446,8 @@ environments:
       - conda: https://conda.anaconda.org/conda-forge/noarch/typing_extensions-4.16.0-pyhcf101f3_0.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/tzdata-2025c-hc9c84f9_1.conda
       - conda: https://conda.anaconda.org/conda-forge/osx-arm64/zstd-1.5.7-hbf9d68e_6.conda
-      - pypi: https://files.pythonhosted.org/packages/d9/bc/6e4c0029117ba784fc320a672fb4f8d3b070b506e995ab3c34294871b95c/postpyc-0.2.1-py3-none-any.whl
-      - pypi: https://files.pythonhosted.org/packages/a3/66/b7b08f32817c6c6b0532177fa7c30c30d9cd18ac6816cc258d443a811f28/postyp-0.2.0-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/ce/3e/0ad76bec7d3046c8e92eef1d5dae9518bdfdac6971e925e53da5d5b95e61/postpyc-0.3.0-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/ee/24/09c87a12b05eee582a63871eeeacc666fcf5cc6c62b6f78669c5829681b8/postyp-0.3.0-py3-none-any.whl
       - pypi: ./
       win-64:
       - conda: https://conda.anaconda.org/conda-forge/win-64/bzip2-1.0.8-h0ad9c76_9.conda
@@ -493,8 +493,8 @@ environments:
       - conda: https://conda.anaconda.org/conda-forge/win-64/vs2022_win-64-19.44.35207-ha74f236_39.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/vswhere-3.1.7-h40126e0_1.conda
       - conda: https://conda.anaconda.org/conda-forge/win-64/zstd-1.5.7-h534d264_6.conda
-      - pypi: https://files.pythonhosted.org/packages/d9/bc/6e4c0029117ba784fc320a672fb4f8d3b070b506e995ab3c34294871b95c/postpyc-0.2.1-py3-none-any.whl
-      - pypi: https://files.pythonhosted.org/packages/a3/66/b7b08f32817c6c6b0532177fa7c30c30d9cd18ac6816cc258d443a811f28/postyp-0.2.0-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/ce/3e/0ad76bec7d3046c8e92eef1d5dae9518bdfdac6971e925e53da5d5b95e61/postpyc-0.3.0-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/ee/24/09c87a12b05eee582a63871eeeacc666fcf5cc6c62b6f78669c5829681b8/postyp-0.3.0-py3-none-any.whl
       - pypi: ./
 packages:
 - conda: https://conda.anaconda.org/conda-forge/linux-64/_openmp_mutex-4.5-20_gnu.conda
@@ -2766,12 +2766,12 @@ packages:
   - pkg:pypi/pluggy?source=hash-mapping
   size: 25877
   timestamp: 1764896838868
-- pypi: https://files.pythonhosted.org/packages/d9/bc/6e4c0029117ba784fc320a672fb4f8d3b070b506e995ab3c34294871b95c/postpyc-0.2.1-py3-none-any.whl
+- pypi: https://files.pythonhosted.org/packages/ce/3e/0ad76bec7d3046c8e92eef1d5dae9518bdfdac6971e925e53da5d5b95e61/postpyc-0.3.0-py3-none-any.whl
   name: postpyc
-  version: 0.2.1
-  sha256: d9e6324335dfb8b8c787f551133bf418091dbe0a34dc4e31c4e67238a9abaa6d
+  version: 0.3.0
+  sha256: c763c75a54315cbd2709763a7b4c1c58c92fafc683724fa4cbb4071c5872f9e3
   requires_dist:
-  - postyp>=0.2.0
+  - postyp>=0.3.0
   - narwhals ; extra == 'dev'
   - numpy ; extra == 'dev'
   - pytest>=7 ; extra == 'dev'
@@ -2779,18 +2779,18 @@ packages:
   - narwhals ; extra == 'narwhals'
   - numpy ; extra == 'numpy'
   requires_python: '>=3.10'
-- pypi: https://files.pythonhosted.org/packages/a3/66/b7b08f32817c6c6b0532177fa7c30c30d9cd18ac6816cc258d443a811f28/postyp-0.2.0-py3-none-any.whl
+- pypi: https://files.pythonhosted.org/packages/ee/24/09c87a12b05eee582a63871eeeacc666fcf5cc6c62b6f78669c5829681b8/postyp-0.3.0-py3-none-any.whl
   name: postyp
-  version: 0.2.0
-  sha256: dd63f86bfea98577edca1a1c21a16b4927c52066775971bc828d9ee3c83b2167
+  version: 0.3.0
+  sha256: cb46e30e74045598e3b0202d50cbd60cbca53f3c7af09772c385eaf016d39861
   requires_python: '>=3.10'
 - pypi: ./
   name: ppspecial
   version: 0.1.1
-  sha256: ebac4d9c3a5976453462679216c520326d50a07e9ac0fd4b3e95d12011dcfe8e
+  sha256: 12e12cf9f003c19b14cd2ec36f32477ead9844ff3518cdd9dd6dc3ec8dd91630
   requires_dist:
-  - postpyc>=0.2.1
-  - postyp>=0.2.0
+  - postpyc>=0.3.0
+  - postyp>=0.3.0
   - numpy ; extra == 'numpy'
   - pytest>=7 ; extra == 'dev'
   - numpy ; extra == 'dev'
