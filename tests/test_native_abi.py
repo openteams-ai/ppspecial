@@ -88,6 +88,9 @@ def test_package_shared_library_exports_binary_kernels(native_artifact):
     xlogy = _bind(native_artifact["lib"], "xlogy", [ctypes.c_double, ctypes.c_double])
     assert xlogy(2.0, 3.0) == pytest.approx(2.0 * math.log(3.0), rel=1e-15)
 
+    hyp0f1 = _bind(native_artifact["lib"], "hyp0f1", [ctypes.c_double, ctypes.c_double])
+    assert hyp0f1(1.0, 1.0) == pytest.approx(2.2795853023360673, rel=1e-12)
+
 
 def test_package_shared_library_exports_mixed_int_float_kernel(native_artifact):
     polygamma = _bind(native_artifact["lib"], "polygamma", [ctypes.c_int64, ctypes.c_double])
@@ -119,6 +122,7 @@ def test_header_declares_representative_stable_exports(native_artifact):
     assert "double pp_gammaln(double x);" in header
     assert "double pp_sigmoid(double x);" in header
     assert "double pp_polygamma(int64_t n, double x);" in header
+    assert "double pp_hyp0f1(double b, double x);" in header
 
 
 def test_manifest_describes_exported_abi(native_artifact):
@@ -130,6 +134,7 @@ def test_manifest_describes_exported_abi(native_artifact):
     assert exports["gamma"]["c_symbol"] == "pp_gamma"
     assert exports["gamma"]["kernel_symbol"] == "__pp_gamma"
     assert exports["j0"]["c_symbol"] == "pp_j0"
+    assert exports["hyp0f1"]["c_symbol"] == "pp_hyp0f1"
     assert exports["gammaln"]["kind"] == "alias"
     assert exports["gammaln"]["alias_of"] == "lgamma"
     assert exports["sigmoid"]["kind"] == "alias"

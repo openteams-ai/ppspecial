@@ -45,6 +45,7 @@ def test_all_public_ufuncs_registered(native):
         "j0", "j1", "y0", "y1", "i0", "i1", "k0", "k1",
         "ndtr", "log_ndtr", "ndtri", "expit", "log_expit", "logit",
         "xlogy", "xlog1py",
+        "hyp0f1",
     }
     assert expected <= registered
     for name in expected:
@@ -90,6 +91,11 @@ def test_binary_ufuncs_match_interpreted(native):
     y = np.linspace(0.5, 2.0, 7)
     expected = np.array([ppspecial.xlogy(float(u), float(v)) for u, v in zip(x, y)])
     np.testing.assert_allclose(native.xlogy(x, y), expected, rtol=1e-14)
+
+    b = np.linspace(0.5, 3.0, 7)
+    x = np.linspace(-3.0, 3.0, 7)
+    expected = np.array([ppspecial.hyp0f1(float(u), float(v)) for u, v in zip(b, x)])
+    np.testing.assert_allclose(native.hyp0f1(b, x), expected, rtol=1e-13, atol=1e-300)
 
 
 def test_broadcasting_matches_numpy_semantics(native):

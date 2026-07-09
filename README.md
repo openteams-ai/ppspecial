@@ -48,6 +48,7 @@ back to the interpreted source kernels.
 | Gamma functions | `_gamma` | `lgamma`/`gammaln`, `gamma`, `digamma`, `polygamma`, `beta`, `lbeta`, `rgamma` |
 | Bessel functions | `_bessel` | `j0`, `j1`, `y0`, `y1`, `i0`, `i1`, `k0`, `k1` |
 | Statistical | `_stats` | `ndtr`, `log_ndtr`, `ndtri`, `expit`/`sigmoid`, `log_expit`, `logit`, `xlogy`, `xlog1py` |
+| Hypergeometric | `_hyper` | `hyp0f1` |
 
 Accuracy targets are documented per module (typically ≤ 1.7e-8 relative
 error for the Bessel family, ≤ 1.2e-7 for `erfc`, full float64 for
@@ -116,9 +117,10 @@ kernel module to a native shared library with the reference compiler:
 | `_bessel` | ✅ compiles natively |
 | `_gamma` | ✅ compiles natively |
 | `_stats` | ✅ compiles natively (links against `_erf`'s compiled `erfc`/`erfinv` via cross-module POST compilation) |
+| `_hyper` | ✅ compiles natively |
 
 The entire package also builds as one shared library:
-`build_file("ppspecial/__init__.py")` compiles all four translation units
+`build_file("ppspecial/__init__.py")` compiles all five translation units
 dependencies-first and links them into a single artifact containing all
 lowered public kernel definitions. The supported C ABI is the stable
 `pp_<name>` namespace described by the generated `ppspecial.h` and
@@ -192,7 +194,7 @@ The detailed cooperative roadmap is maintained in
 for ppspecial library work, native C ABI work, NumPy extension work, and
 postpyc compiler/spec requests discovered from this library.
 
-- Hypergeometric functions: `hyp1f1`, `hyp2f1`, `hyp0f1`
+- Hypergeometric functions: `hyp1f1`, `hyp2f1`, `hyperu`
 - Orthogonal polynomials: `eval_legendre`, `eval_hermite`, `eval_chebyt`, …
 - Elliptic integrals: `ellipk`, `ellipe`, `ellipj`
 - Airy functions: `airy`, `airye`

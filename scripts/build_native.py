@@ -15,7 +15,7 @@ from postpyc.build import build_file, BuildError
 PACKAGE_DIR = Path(__file__).resolve().parent.parent / "ppspecial"
 PACKAGE_ENTRY = PACKAGE_DIR / "__init__.py"
 
-EXPECTED_NATIVE = ["_erf", "_bessel", "_gamma", "_stats"]
+EXPECTED_NATIVE = ["_erf", "_bessel", "_gamma", "_stats", "_hyper"]
 
 
 def main() -> int:
@@ -32,7 +32,7 @@ def main() -> int:
             print(f"  {name:10s} FAILED")
             print("    " + "\n    ".join(str(exc).splitlines()[:6]))
 
-    # The full package: one shared library with all four translation units
+    # The full package: one shared library with all five translation units
     # plus stable C ABI sidecars (`ppspecial.h`, `ppspecial.json`).
     try:
         lib = build_file(

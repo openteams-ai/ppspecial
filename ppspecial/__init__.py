@@ -14,10 +14,11 @@ Gamma functions  (_gamma)  : lgamma / gammaln, gamma, digamma, polygamma,
 Bessel functions (_bessel) : j0, j1, y0, y1, i0, i1, k0, k1
 Statistical      (_stats)  : ndtr, log_ndtr, ndtri, expit / sigmoid,
                               log_expit, logit, xlogy, xlog1py
+Hypergeometric   (_hyper)  : hyp0f1
 
 Roadmap (not yet implemented)
 ------------------------------
-Hypergeometric   : hyp1f1, hyp2f1, hyp0f1
+Hypergeometric   : hyp1f1, hyp2f1, hyperu
 Orthogonal poly  : eval_legendre, eval_hermite, eval_chebyshev*, eval_laguerre
 Spherical harm.  : sph_harm
 Elliptic integrals: ellipk, ellipe, ellipj
@@ -64,6 +65,10 @@ from ppspecial._stats import (
     xlog1py,
 )
 
+from ppspecial._hyper import (
+    hyp0f1,
+)
+
 __all__ = [
     # erf
     "erf", "erfc", "erfinv", "erfcinv",
@@ -75,6 +80,8 @@ __all__ = [
     "ndtr", "log_ndtr", "ndtri",
     "expit", "sigmoid", "log_expit", "logit",
     "xlogy", "xlog1py",
+    # hypergeometric
+    "hyp0f1",
 ]
 
 __native_available__ = False
